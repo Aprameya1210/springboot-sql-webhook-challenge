@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Java Service Starter
 
 A well-structured, production-ready Java service scaffold with:
