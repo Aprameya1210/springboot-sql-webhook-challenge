@@ -1,0 +1,39 @@
+.PHONY: help setup format lint test verify run docker-build docker-run kind-apply
+
+help:
+	@echo "Common targets:"
+	@echo "  format        - Apply code formatting"
+	@echo "  lint          - Run Checkstyle"
+	@echo "  test          - Run unit tests"
+	@echo "  verify        - Full verify (tests, coverage, package)"
+	@echo "  run           - Run the app locally (jar)"
+	@echo "  docker-build  - Build container image"
+	@echo "  docker-run    - Run container locally"
+	@echo "  pre-push      - Run pre-push checks"
+
+setup:
+	@echo "No special setup required. Ensure Java 21 + Maven are installed."
+
+format:
+	mvn -q spotless:apply
+
+lint:
+	mvn -q -B checkstyle:check
+
+test:
+	mvn -q -B test
+
+verify:
+	mvn -q -B verify
+
+run: verify
+	java -jar target/app-0.1.0-SNAPSHOT-shaded.jar
+
+docker-build:
+	docker build -t java-starter:dev .
+
+docker-run:
+	docker run --rm -p 8080:8080 -e PORT=8080 java-starter:dev
+
+pre-push:
+	./scripts/pre-push.sh

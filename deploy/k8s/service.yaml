@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: java-starter
+  labels:
+    app: java-starter
+spec:
+  selector:
+    app: java-starter
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+  type: ClusterIP
