@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Java Service Starter
 
 A well-structured, production-ready Java service scaffold with:
@@ -115,3 +116,7 @@ A well-structured, production-ready Java service scaffold with:
 ## License
 
 MIT (see LICENSE)
+=======
+# springboot-sql-webhook-challenge
+A Spring Boot app that registers a webhook on startup, solves an SQL query problem based on registration logic, and submits the final query securely using JWT. Demonstrates REST API integration, JWT auth, and automated workflows.
+>>>>>>> e30bde67cc57d0e6ecb0c375f5d4f51a7d1662ab
